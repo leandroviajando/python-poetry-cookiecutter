@@ -1,0 +1,49 @@
+[tool.poetry]
+authors = ["{{ cookiecutter.author_name }}"]
+description = ""
+name = "{{ cookiecutter.__directory_name }}"
+readme = "README.md"
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+python = "{{ cookiecutter.compatible_python_versions }}"
+mlflow = "^2.16.0"
+pandas = "^1.5.3"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.8.0"
+isort = "^5.13.2"
+mypy = "^1.11.2"
+pre-commit = "^3.8.0"
+pytest = "^8.3.2"
+pytest-cov = "^5.0.0"
+ruff = "^0.6.2"
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+exclude = ".venv/"
+explicit_package_bases = true
+ignore_missing_imports = true
+namespace_packages = true
+
+[tool.pytest.ini_options]
+pythonpath = "."
+
+[tool.coverage.run]
+omit = ["*/main.py", "*/__init__.py", "*/__main__.py", "*/tests/*", "*/test_*", "*/conftest*"]
+source = ["src/"]
+
+[tool.ruff.lint]
+ignore = []
+
+[tool.ruff.lint.per-file-ignores]
+"{src}/**/{__init__.py}" = ["F401"]
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.8.3"]

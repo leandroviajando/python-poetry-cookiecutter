@@ -1,0 +1,6 @@
+{
+    "project_name": "Project Name",
+    "__directory_name": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
+    "author_name": "Your Name",
+    "compatible_python_versions": "^3.9"
+}
